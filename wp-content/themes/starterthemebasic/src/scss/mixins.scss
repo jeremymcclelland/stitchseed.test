@@ -1,0 +1,346 @@
+
+/* Mixins
+==========================================================================================================================*/
+
+
+/* Clearfix - usage: @extend %clearfix;
+-----------------------------------------------------------------------------------------------*/
+.clearfix, %clearfix {
+	*zoom: 1;
+	&:before, &:after { content: " "; display: table; }
+	&:after { clear: both; }
+}
+
+
+
+/* Transition - usage: @include transition(all .2s ease); - or - @extend .transition;
+-----------------------------------------------------------------------------------------------*/
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+
+
+
+/* Animation - usage: @include keyframes(slide-down) { 0% { opacity: 1; } 90% { opacity: 0; } } - or - @include animation('slide-down 5s 3');
+-----------------------------------------------------------------------------------------------*/
+@mixin keyframes($animation_name) {
+	@-webkit-keyframes #{$animation_name} { @content; }
+	@-moz-keyframes #{$animation_name} { @content; }  
+	@-ms-keyframes #{$animation_name} { @content; }
+	@-o-keyframes #{$animation_name} { @content; }  
+	@keyframes #{$animation_name} { @content; }
+}
+
+@mixin animation($animation) {
+	-webkit-animation: #{$animation};
+	-moz-animation: #{$animation};
+	-ms-animation: #{$animation};
+	-o-animation: #{$animation};
+	animation: #{$animation};      
+}
+
+
+
+/* Center Vertically - usage: @include vertical-align();
+-----------------------------------------------------------------------------------------------*/
+@mixin vertical-align($position: absolute) {
+	position: $position;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+
+
+/* Center Horizontally - usage: @include horizontal-align();
+-----------------------------------------------------------------------------------------------*/
+@mixin horizontal-align($position: absolute) {
+	position: $position;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+
+
+/* Center Horizontal and Vertical - usage: @include center-align();
+-----------------------------------------------------------------------------------------------*/
+@mixin center-align($position: absolute) {
+	position: $position;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+}
+
+
+
+/* Rotate - usage: @include rotate(-90deg);
+-----------------------------------------------------------------------------------------------*/
+@mixin rotate($degrees) {
+	-moz-transform: rotate($degrees);  
+	-o-transform: rotate($degrees);  
+	-webkit-transform: rotate($degrees);
+	filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+	zoom: 1;
+}
+
+
+
+/* multiple transforms - usage: @include transform( rotate(-90deg) translateY(-50%) );
+-----------------------------------------------------------------------------------------------*/
+@mixin transform($transforms...) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+
+
+/* Aspect Ratio - usage: @include aspect-ratio(16, 9);
+-----------------------------------------------------------------------------------------------*/
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+}
+
+
+
+/* Flexbox - usage: @include flexbox(); - @include align-items(center); - @include justify-content(space-around);
+-----------------------------------------------------------------------------------------------*/
+@mixin align-items($align) {
+	@if $align == flex-start { -ms-flex-align: start; /* IE10 syntax */ }
+	-webkit-align-items: $align;
+	-moz-align-items: $align;
+	-ms-align-items: $align;
+	align-items: $align;
+}
+
+@mixin align-self($self) {
+	-webkit-align-self: $self;
+	-moz-align-self: $self;
+	-ms-align-self: $self;
+	align-self: $self;
+}
+
+@mixin justify-content($justify) {
+	@if $justify == space-between {
+		-ms-flex-pack: justify; /* IE10 syntax */
+	}
+	@if $justify == center { 
+		-ms-flex-pack: center; /* IE10 syntax */
+	}
+	-webkit-justify-content: $justify;
+	-moz-justify-content: $justify;
+	-ms-justify-content: $justify;
+	justify-content: $justify;
+}
+
+@mixin flex-wrap($wrap) {
+	-webkit-flex-wrap: $wrap;
+	-moz-flex-wrap: $wrap;
+	-ms-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+}
+
+@mixin flex-direction($direction) {
+	-webkit-flex-direction: $direction;
+	-moz-flex-direction: $direction;
+	-ms-flex-direction: $direction;
+	flex-direction: $direction;
+}
+
+@mixin flex-flow($flow) {
+	-webkit-flex-wrap: $flow;
+	-moz-flex-wrap: $flow;
+	-ms-flex-wrap: $flow;
+	flex-wrap: $flow;
+}
+
+@mixin flex($flex) {
+	-webkit-box-flex: $flex;
+	-moz-box-flex: $flex;
+	-webkit-flex: $flex;
+	-ms-flex: $flex;
+	flex: $flex;
+	// -ms-flex: 1 0 auto; // IE 11 syntax for when the element also has max-width
+}
+
+@mixin order($order) {
+	-webkit-box-ordinal-group: $order;
+	-moz-box-ordinal-group: $order;
+	-ms-flex-order: $order;
+	-webkit-order: $order;
+	order: $order;  
+}
+
+@mixin align-self($self) {
+	-webkit-align-self: $self;
+	-moz-align-self: $self;
+	-ms-falign-self: $self;
+	align-self: $self;
+}
+
+@mixin flexbox($align: null, $justify: null, $wrap: wrap, $direction: null) {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	@if $align { 
+		@include align-items($align);
+	}
+	@if $justify {
+		@include justify-content($justify);
+	}
+	@if $wrap {
+		@include flex-wrap($wrap);
+	}
+	@if $direction {
+		@include flex-direction($direction);
+	}
+}
+
+
+
+/* Column Width - get column width by passing the number of columns and the gutter width - usage: width: colWidth(3,50px); OR using a variable: width: colWidth(3,$gutter);
+-----------------------------------------------------------------------------------------------*/
+@function colWidth($numberOfColumns, $gutterWidth) {
+	$gutters: $numberOfColumns - 1; // calculate number of gutters
+
+	$emptySpace: $gutterWidth * $gutters / $numberOfColumns;
+	$emptySpace: round($emptySpace); // round value to nearest whole number (Edge/IE can't handle a pixel value with decimals)
+
+	$colWidth: calc( 100% / #{$numberOfColumns} - #{$emptySpace} ); // calculate width of columns
+	@return $colWidth;
+}
+
+
+
+/* Object fit - force maintain aspect ratio for media/embeds - usage: @include object-fit(contain);
+-----------------------------------------------------------------------------------------------*/
+@mixin object-fit($fit) {
+	-o-object-fit: $fit;
+	object-fit: $fit;
+}
+
+
+
+/* Multiple columns text - usage: @include textColumns(2,40px);
+-----------------------------------------------------------------------------------------------*/
+@mixin textColumns($columns, $gap) {
+	-moz-column-count: $columns;
+	-webkit-column-count: $columns;
+	-o-column-count: $columns;
+	column-count: $columns;
+	-webkit-column-gap: $gap;
+	-moz-column-gap: $gap;
+	column-gap: $gap;
+}
+
+
+
+/* Linear Gradient - usage: @include linearGradient(rgba(255,255,255,1), rgba(0,0,0,1));
+-----------------------------------------------------------------------------------------------*/
+@mixin linearGradient($top, $bottom){
+	background: $top; /* Old browsers */
+	background: -moz-linear-gradient(top,  $top 5%, $bottom 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  $top 5%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  $top 5%,$bottom 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  $top 5%,$bottom 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  $top 5%,$bottom 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+/* Grayscale - usage: @include grayscale(100%);
+-----------------------------------------------------------------------------------------------*/
+@mixin grayscale($value) {
+	-webkit-filter: #{"grayscale(#{$value})"};
+	-moz-filter: #{"grayscale(#{$value})"};
+	filter: #{"grayscale(#{$value})"};
+}
+
+
+
+/* Placeholder - usage: .myDiv { @include placeholder { color: #000; } }
+-----------------------------------------------------------------------------------------------*/
+@mixin placeholder {
+	::-webkit-input-placeholder { @content }
+	:-moz-placeholder { @content }
+	::-moz-placeholder { @content }
+	:-ms-input-placeholder { @content }
+}
+
+
+
+/* Selection - usage: @include selection { color: #000; background: #fff; }
+-----------------------------------------------------------------------------------------------*/
+@mixin selection {
+	::-moz-selection { @content; }
+	::selection { @content; }
+}
+
+
+
+/* Decimal Round - usage: decimal-round(0.333, 2);
+-----------------------------------------------------------------------------------------------*/
+@function decimal-round ($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @if $digits > 0 {
+        @for $i from 1 through $digits {
+            $n: $n * 10;
+        }
+    }
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+/* output
+decimal-round(0.333)    => 0
+decimal-round(0.333, 1) => 0.3
+decimal-round(0.333, 2) => 0.33
+decimal-round(0.666)    => 1
+decimal-round(0.666, 1) => 0.7
+decimal-round(0.666, 2) => 0.67
+*/
+
+

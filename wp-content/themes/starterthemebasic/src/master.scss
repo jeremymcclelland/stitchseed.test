@@ -1,0 +1,36 @@
+// Master scss file - imports all the others (via CodeKit)
+
+// Make sure the charset is set appropriately
+
+// Behold, here are all the projec's scss components.
+
+// auto includes (other developers)
+@import "scss/normalize";
+@import "scss/animate";
+
+// auto includes
+@import "scss/reset";
+@import "scss/mixins";
+
+// plugins
+@import "scss/swiper.min";
+
+// setup
+@import "scss/_fonts";
+@import "scss/_settings";
+@import "scss/_structures";
+
+// components
+@import "scss/_componenthere";
+@import "scss/_footer";
+@import "scss/_forms";
+@import "scss/_header";
+
+// pages
+@import "scss/_404";
+@import "scss/_tmpl_about";
+@import "scss/_tmpl_home";
+@import "scss/_single";
+
+// ie Fixes
+@import "scss/_ie_fixes";

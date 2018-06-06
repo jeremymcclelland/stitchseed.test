@@ -1,0 +1,245 @@
+
+/* Forms
+==========================================================================================================================*/
+
+$fieldGap: 22px;
+
+.gform_wrapper {
+
+	label {
+		display: block;
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1rem;
+	}
+	.gfield > label {
+		margin-bottom: 10px;
+	}
+
+	.gform_fields {
+		@include flexbox(flex-end,space-between);
+	}
+
+	.gfield {
+		position: relative;
+		margin-bottom: 25px;
+
+		&.full {
+			width: 100%;
+		}
+
+		&.half {
+			width: calc( 50% - #{$fieldGap} / 2 );
+
+			@media screen and (max-width: $small-max-width) {
+				width: 100%;
+			}
+		}
+	}
+
+	// Checkboxes
+	.gfield_checkbox {
+		@include flexbox(flex-start,flex-start);
+
+		li {
+			@include flexbox(center,flex-start);
+			position: relative;
+
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
+
+		label {
+			margin-left: 10px;
+			font-family: $sansSerif;
+			font-size: 1rem;
+			font-weight: 500;
+			line-height: 1rem;
+			text-transform: uppercase;
+		}
+
+		input {
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		input + label:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 11px;
+			height: 11px;
+			border: 2px solid $black;
+			font-family: sans-serif;
+			text-indent: 2px;
+			pointer-events: none;
+			cursor: pointer;
+		}
+
+		input:checked + label:before {
+			background: $black;
+		}
+	}
+
+	// Placeholder
+	@include placeholder {
+		color: $black;
+	}
+
+	input, textarea {
+		width: 100%;
+		height: 35px;
+		box-sizing: border-box;
+		padding: 0 15px;
+	}
+
+	input[type="text"], textarea {
+		border: 0;
+		font-family: $sansSerif;
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1rem;
+		text-transform: uppercase;
+	}
+
+	input[type="checkbox"] {
+		width: 15px;
+		height: 15px;
+	}
+
+	textarea {
+		max-width: 100%;
+		min-width: 100%;
+		min-height: 90px;
+		padding: 15px;
+		border: none;
+	}
+
+	input[type="submit"] {
+		width: 117px;
+	}
+
+	.gform_footer {
+		position: relative;
+		text-align: right;
+	}
+
+	// Ajax loader
+	.gform_ajax_spinner {
+		width: 20px !important;
+	  	height: 20px !important;
+	  	position: absolute !important;
+	  	top: 50% !important;
+	  	right: -25px !important;
+	  	left: auto !important;
+	  	margin-top: -10px;
+	  	background-color: $black;
+	  	border-radius: 100%;  
+	  	-webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+	  	animation: sk-scaleout 1.0s infinite ease-in-out;
+	}
+
+	@-webkit-keyframes sk-scaleout {
+	  	0% { 
+	  		-webkit-transform: scale(0)
+	  	}
+	  	100% {
+	    	-webkit-transform: scale(1.0);
+	    	opacity: 0;
+	  	}
+	}
+	
+	@keyframes sk-scaleout {
+	  	0% { 
+	    	-webkit-transform: scale(0);
+	    	transform: scale(0);
+	  	}
+	  	100% {
+	    	-webkit-transform: scale(1.0);
+	    	transform: scale(1.0);
+	    	opacity: 0;
+	  	}
+	}
+
+	// Validation
+	&.gform_validation_error {
+		.gfield {
+			padding-bottom: 5px;
+		}
+	}
+
+	.validation_error {
+		@extend p;
+		margin-bottom: 30px;
+		text-align: center;
+		color: $red;
+	}
+
+	.validation_message {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		font-family: $sansSerif;
+		font-size: .8rem;
+		font-weight: 700;
+    	line-height: .8rem;
+    	letter-spacing: 1px;
+    	text-transform: uppercase;
+    	color: $red;
+	}
+
+}
+
+// Date Picker
+div#ui-datepicker-div {
+	display: none;
+    background: $white;
+    padding: 15px 15px 10px;
+    border: 4px solid $black;
+    font-family: 'Helvetica';
+    text-transform: uppercase;
+}
+
+a.ui-datepicker-prev.ui-corner-all {
+    float: left;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+a.ui-datepicker-next.ui-corner-all {
+    float: right;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ui-datepicker-title {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+select.ui-datepicker-month {
+    width: calc(50% - 5px);
+    height: 22px;
+    float: left;
+}
+
+select.ui-datepicker-year {
+    width: calc(50% - 5px);
+    height: 22px;
+    float: right;
+}
+
+table.ui-datepicker-calendar {
+    width: 100%;
+}
+
+a.ui-state-default {
+    padding: 5px;
+    text-align: center;
+}

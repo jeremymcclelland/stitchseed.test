@@ -1,0 +1,168 @@
+// settings
+
+
+/* Responsive Breakpoints & Mobile Spacing
+==========================================================================================================================*/
+
+// Responsive Breakpoints
+$small-max-width: 767px;
+$medium-min-width: $small-max-width + 1px;
+$medium-max-width: 1024px;
+
+// Mobile Spacing
+$mobile-spacing: 25px;
+
+
+
+/* Colors
+==========================================================================================================================*/
+
+// Default
+$black: #000000;
+$white: #ffffff;
+
+// Accent
+$red: #945454;
+
+// Hover
+$hover: $red;
+
+
+
+/* Type
+==========================================================================================================================*/
+
+// Default
+$serif: Georgia, Times;
+$sansSerif: Helvetica;
+
+// Accent
+$Atlas: 'Atlas Grotesk', $sansSerif;
+
+// Elements
+html {
+	// base values for rem units
+	font-size: 10px;
+	line-height: 10px;
+}
+
+body {
+	font-family: $serif;
+	color: $black;
+}
+
+p {
+	font-family: $serif;
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 2.5rem;
+}
+
+h1 {
+	font-family: $sansSerif;
+	font-size: 4rem;
+	font-weight: 600;
+	line-height: 5rem;
+	letter-spacing: 1px;
+}
+
+h2 {
+	font-family: $sansSerif;
+	font-size: 3rem;
+	font-weight: 600;
+	line-height: 4rem;
+	letter-spacing: 1px;
+}
+
+h3 {
+	font-family: $sansSerif;
+	font-size: 2.5rem;
+	font-weight: 600;
+	line-height: 3.2rem;
+	letter-spacing: 1px;
+}
+
+h4 {
+	font-family: $sansSerif;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.5rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+
+
+/* Mouse, Cursor, and Selection
+==========================================================================================================================*/
+
+@include selection {
+	background: #EFEEEE;
+	color: $black;
+}
+
+
+
+/* Transitions
+==========================================================================================================================*/
+
+.transition {
+	@include transition(all .25s ease);
+}
+
+a, svg * { 
+	@extend .transition;
+	&:hover {
+		color: $hover; 
+	}
+}
+
+input[type="submit"], button, .button {
+	@extend .transition;
+	cursor: pointer;
+}
+
+
+
+/* Universal Classes
+==========================================================================================================================*/
+
+.mobileOnly {
+	display: none;
+
+	@media screen and (max-width: $small-max-width) {
+		display: block;
+	}
+}
+
+.mobileHide {
+	@media screen and (max-width: $small-max-width) {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: $medium-min-width) and (max-width: $medium-max-width) {
+	
+}
+
+
+
+/* Plugins & Add-Ons
+==========================================================================================================================*/
+
+// WOW.js
+.wow {
+	visibility: hidden;
+}
+
+
+
+/* Z-Index
+==========================================================================================================================
+
+20 - 
+
+*/
+
+
+
