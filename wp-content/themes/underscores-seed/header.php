@@ -43,8 +43,21 @@
 				<p class="site-description"><?php echo $underscores_seed_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
+		
+
+
+		<div class="search-drawer-wrapper">
+			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', '_tk' ); ?>">
+					<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', '_tk' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php _ex( 'Search for:', 'label', '_tk' ); ?>">
+			</form>
+		</div>
+
+
 
 		<nav id="site-navigation" class="main-navigation">
+			
+
 			<div class="flex-wrapper">
 
 				<div class="left-nav flex-item">
@@ -84,3 +97,11 @@
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content container">
+
+<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+		<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', '_tk' ); ?>">
+			<label>
+			<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', '_tk' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php _ex( 'Search for:', 'label', '_tk' ); ?>">
+			</label>
+</form>
+
