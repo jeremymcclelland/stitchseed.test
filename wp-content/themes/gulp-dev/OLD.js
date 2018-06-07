@@ -3,7 +3,9 @@ var themename = 'underscores-seed';
 var gulp = require('gulp'),
 	// Prepare and optimize code etc
 	autoprefixer = require('autoprefixer'),
+	browserSync = require('browser-sync').create(),
 	image = require('gulp-image'),
+	jshint = require('gulp-jshint'),
 	postcss = require('gulp-postcss'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
@@ -43,11 +45,27 @@ gulp.task('images', function() {
 	.pipe(gulp.dest(img));
 });
 
+// JavaScript
+gulp.task('javascript', function() {
+	return gulp.src([js + '*.js'])
+	.pipe(jshint())
+	.pipe(jshint.reporter('default'))
+	.pipe(gulp.dest(js));
+});
+
 
 // Watch everything
 gulp.task('watch', function() {
+	browserSync.init({ 
+		open: 'external',
+		proxy: 'stitchseed.test',
+		port: 8080,
+		reloadOnRestart: true
+	});
 	gulp.watch([root + '**/*.css', root + '**/*.scss' ], ['css']);
+	gulp.watch(js + '**/*.js', ['javascript']);
 	gulp.watch(img + 'RAW/**/*.{jpg,JPG,png}', ['images']);
+	gulp.watch(root + '**/*').on('change', browserSync.reload);
 });
 
 

@@ -44,10 +44,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 --------------------------------------------------------------*/
-* {
-	background-color: yellow;
-}
-
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -637,11 +633,74 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+.site-content {
+	margin-top: 80px;
+}
+
 .main-navigation {
 	clear: both;
 	display: block;
 	float: left;
 	width: 100%;
+	padding: 0 25px;
+	background-color: #fff;
+	height: 80px;
+	position: fixed;
+	z-index: 1;
+	border-bottom: 1px solid red;
+}
+
+.main-navigation .flex-wrapper {
+	display: -ms-flexbox;
+	display: flex;
+	height: 100%;
+	-ms-flex-align: center;
+	    align-items: center;
+}
+
+.main-navigation .flex-wrapper .flex-item {
+	-ms-flex: 1 1 auto;
+	    flex: 1 1 auto;
+}
+
+.main-navigation .flex-wrapper .flex-item ul {
+	text-transform: uppercase;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	    align-items: center;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li {
+	-ms-flex: 1 1 auto;
+	    flex: 1 1 auto;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li a .social-icon {
+	height: 16px;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li.social {
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li.social a {
+	margin-right: 15px;
+}
+
+.main-navigation .flex-wrapper .flex-logo {
+	-ms-flex: 1 0 auto;
+	    flex: 1 0 auto;
+}
+
+.main-navigation .flex-wrapper .flex-logo .header-logo img {
+	width: 412px;
+	margin: 0 auto;
+}
+
+.main-navigation .flex-wrapper .right-nav {
+	text-align: right;
 }
 
 .main-navigation ul {

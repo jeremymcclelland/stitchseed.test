@@ -24,8 +24,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'underscores-seed' ); ?></a>
 
-	<header id="masthead" class="site-header container">
-		<div class="site-branding">
+	<header id="masthead" class="site-header">
+		<div class="site-branding hidden">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
@@ -45,13 +45,41 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'underscores-seed' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
+			<div class="flex-wrapper">
+
+				<div class="left-nav flex-item">
+					<ul>
+						<li class="social">
+							<a href="#"><img class="social-icon svg" src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram.svg"/></a>
+							<a href="#"><img class="social-icon svg" src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook.svg"/></a>
+						</li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">About</a></li>
+					</ul>
+				</div>
+
+				<div class="flex-item flex-logo">
+					<a class="header-logo" href="/">
+						<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/images/284WeddingsandEvents.svg"/>
+					</a>
+				</div>
+
+				<div class="right-nav flex-item">
+ 					<ul>
+						<li><a href="#">Musings</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#"><img class="social-icon svg" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search.svg"/></a></li>
+					</ul>
+				</div>
+
+				<button class="menu-toggle hidden" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'underscores-seed' ); ?></button>
+				<?php
+				// wp_nav_menu( array(
+				// 	'theme_location' => 'menu-1',
+				// 	'menu_id'        => 'primary-menu',
+				// ) );
+				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

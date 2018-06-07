@@ -1,8 +1,70 @@
+
+.site-content {
+	margin-top: 80px;
+}
+
 .main-navigation {
 	clear: both;
 	display: block;
 	float: left;
 	width: 100%;
+	padding: 0 25px;
+	background-color: #fff;
+	height: 80px;
+	position: fixed;
+	z-index: 1;
+	border-bottom: 1px solid red;
+	.flex-wrapper {
+		display: flex;
+		height: 100%;
+		align-items: center;
+
+		.flex-item {
+			flex: 1 1 auto;
+
+			ul {
+				text-transform: uppercase;
+				display: flex;
+				align-items: center;
+
+				li {
+					flex: 1 1 auto;
+					a {
+						.social-icon {
+							height: 16px;
+						}
+					}
+				}
+
+				li.social {
+					display: flex;
+
+					a {
+						margin-right: 15px;
+					}
+				}
+			}
+				
+
+		}
+
+		.flex-logo {
+			flex: 1 0 auto;
+
+			.header-logo {
+				img {
+					width: 412px;
+					margin: 0 auto;
+				}
+			}
+		}
+		
+
+		.right-nav {
+			text-align: right;
+		}
+	}	
+	
 
 	ul {
 		display: none;
