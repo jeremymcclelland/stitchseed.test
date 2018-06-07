@@ -22,10 +22,7 @@
 				?>
 			</a>
 			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'underscores-seed' ), 'underscores-seed', '<a href="http://underscores.me/">SDCO4</a>' );
-				?>
+				<a href="<?php echo esc_url( __( 'http://sdcopartners.com/', 'underscores-seed' ) ); ?>"><?php printf( esc_html__( 'underscores-seed Theme By: %s', 'underscores-seed' ), 'SDCO' ); ?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

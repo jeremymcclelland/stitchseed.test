@@ -511,6 +511,10 @@ figure {
   /* Extra wide images within figure tags don't overflow the content area. */
 }
 
+.site-title {
+  font-size: 2em;
+}
+
 table {
   margin: 0 0 1.5em;
   width: 100%;
