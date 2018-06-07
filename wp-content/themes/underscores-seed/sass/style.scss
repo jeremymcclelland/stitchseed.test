@@ -45,7 +45,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 --------------------------------------------------------------*/
-
+* {
+	background-color: yellow;
+}
 
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
