@@ -27,12 +27,15 @@
 	<header id="masthead" class="site-header">
 
 
-		<div class="search-drawer-wrapper">
-			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<form role="search" method="get" id="search-form-drawer" class="search-form-drawer search-hide" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+
+					<label>
 					<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', '_tk' ); ?>">
-					<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', '_tk' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php _ex( 'Search for:', 'label', '_tk' ); ?>">
+					</label>
+					<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Type here', 'placeholder', '_tk' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php _ex( 'Search for:', 'label', '_tk' ); ?>">
+					<a class="search-close" onclick="closeSearch()"><span>X</span></a>
 			</form>
-		</div>
+
 
 
 
@@ -43,11 +46,12 @@
 			<div class="flex-wrapper">
 				<a class="expand-icon" onclick="openNav()">&#9776;</a>
 				<div class="left-nav flex-item">
-					
+
 					<ul>
 						<li class="social">
-							<a href="#"><img class="social-icon svg" src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram.svg"/></a>
-							<a href="#"><img class="social-icon svg" src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook.svg"/></a>
+							<a href="#"><?php echo file_get_contents(get_template_directory().'/images/instagram.svg'); ?></a>
+
+							<a href="#"><?php echo file_get_contents(get_template_directory().'/images/facebook.svg'); ?></a>
 						</li>
 						<li><a href="#">Portfolio</a></li>
 						<li><a href="#">About</a></li>
@@ -64,7 +68,7 @@
  					<ul>
 						<li><a href="#">Musings</a></li>
 						<li><a href="#">Contact</a></li>
-						<li><a href="#"><img class="social-icon svg" src="<?php echo get_stylesheet_directory_uri(); ?>/images/search.svg"/></a></li>
+						<li><a class="search-icon" onclick="openSearch()"><?php echo file_get_contents(get_template_directory().'/images/search.svg'); ?></a></li>
 					</ul>
 				</div>
 
@@ -103,6 +107,14 @@ function openNav() {
 
 function closeNav() {
     jQuery("#navOverlay").addClass('overlay-hide').removeClass('overlay-display');
+}
+
+function openSearch() {
+    jQuery("#search-form-drawer").addClass('search-display').removeClass('search-hide');
+}
+
+function closeSearch() {
+    jQuery("#search-form-drawer").addClass('search-hide').removeClass('search-display');
 }
 </script>
 

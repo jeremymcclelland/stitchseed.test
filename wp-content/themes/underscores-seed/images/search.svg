@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.54 8.54"><defs><style>.cls-1{fill:none;stroke:#847c77;stroke-miterlimit:10;stroke-width:0.81px;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="3.2" cy="3.2" r="2.79" transform="translate(-1.32 3.2) rotate(-45)"/><line class="cls-1" x1="5.17" y1="5.17" x2="8.26" y2="8.26"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 8.54 8.54" enable-background="new 0 0 8.54 8.54" xml:space="preserve">
+<title>Asset 3</title>
+<g id="Layer_2">
+	<g id="Layer_1-2">
+		<g>
+			<path fill="#847C77" d="M3.2055664,6.3935547c-0.8183594,0-1.6367188-0.3115234-2.2592773-0.9345703
+				C-0.2993164,4.2138672-0.2993164,2.1865234,0.9458008,0.940918l0.0004883-0.0004883
+				c1.2451172-1.2451172,3.2734375-1.2451172,4.5185547,0c1.2451172,1.246582,1.2451172,3.2734375,0,4.5185547
+				C4.8422852,6.0820312,4.0239258,6.3935547,3.2055664,6.3935547z M1.519043,1.5131836
+				C0.5888672,2.4433594,0.5888672,3.956543,1.5185547,4.8867188c0.9306641,0.9296875,2.4438477,0.9296875,3.3735352,0
+				c0.9291992-0.9301758,0.9291992-2.4433594,0-3.3735352C3.9624023,0.5844727,2.4492188,0.5830078,1.5185547,1.5136719
+				L1.519043,1.5131836z"/>
+		</g>
+		<g>
+			
+				<rect x="6.309896" y="4.5296998" transform="matrix(0.7070509 -0.7071626 0.7071626 0.7070509 -2.7813287 6.7154717)" fill="#847C77" width="0.8096511" height="4.3700442"/>
+		</g>
+	</g>
+</g>
+</svg>

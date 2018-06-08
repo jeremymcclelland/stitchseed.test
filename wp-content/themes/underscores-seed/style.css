@@ -637,34 +637,58 @@ a:hover, a:active {
 	margin-top: 80px;
 }
 
-.search-drawer-wrapper {
-	position: fixed;
-	width: 100%;
-	display: -ms-flexbox;
-	display: flex;
-	height: 80px;
-	-ms-flex-align: center;
-	    align-items: center;
-	background: red;
-}
-
-.search-drawer-wrapper form.search-form {
+form.search-form-drawer {
 	height: 80px;
 	background: teal;
 	width: 100%;
-	padding: 0 25px 0 80px;
+	position: fixed;
+	z-index: 2;
 }
 
-.search-drawer-wrapper form.search-form .search-submit {
-	position: absolute;
-	left: 0;
+@media only screen and (max-width: 979px) {
+	form.search-form-drawer {
+		display: none;
+	}
+}
+
+form.search-form-drawer .search-submit {
 	width: 80px;
 	height: 80px;
 }
 
-.search-drawer-wrapper form.search-form input.search-field {
+form.search-form-drawer input.search-field {
 	width: 100%;
 	height: 100%;
+}
+
+form.search-form-drawer .search-close {
+	width: 65px;
+	height: 80px;
+	text-align: center;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	    align-items: center;
+	cursor: pointer;
+}
+
+form.search-form-drawer .search-close span {
+	width: 100%;
+}
+
+.search-display {
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@media only screen and (max-width: 979px) {
+	.search-display {
+		display: none;
+	}
+}
+
+.search-hide {
+	display: none;
 }
 
 .main-navigation {
@@ -719,7 +743,16 @@ a:hover, a:active {
 }
 
 .main-navigation .flex-wrapper .flex-item ul li a .social-icon {
-	height: 16px;
+	height: 13px;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li .search-icon {
+	cursor: pointer;
+	height: 13px;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li .search-icon svg {
+	height: 13px;
 }
 
 .main-navigation .flex-wrapper .flex-item ul li.social {
@@ -729,6 +762,20 @@ a:hover, a:active {
 
 .main-navigation .flex-wrapper .flex-item ul li.social a {
 	margin-right: 15px;
+	height: 13px;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li.social a svg {
+	height: 13px;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li.social a svg path {
+	fill: #d9d6d5;
+	transition: all 0.1s ease-in-out;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li.social a svg:hover path, .main-navigation .flex-wrapper .flex-item ul li.social a svg:focus path {
+	fill: #847c77;
 }
 
 .main-navigation .flex-wrapper .flex-logo {
