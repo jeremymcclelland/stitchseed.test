@@ -690,8 +690,8 @@ a:hover, a:active {
 }
 
 .main-navigation .flex-wrapper .flex-item {
-	-ms-flex: 1 1 auto;
-	    flex: 1 1 auto;
+	-ms-flex: 0 1 380px;
+	    flex: 0 1 380px;
 }
 
 .main-navigation .flex-wrapper .flex-item ul {
