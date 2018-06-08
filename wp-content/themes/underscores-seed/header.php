@@ -29,11 +29,10 @@
 
 			<form role="search" method="get" id="search-form-drawer" class="search-form-drawer search-hide" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 
-					<label>
-					<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', '_tk' ); ?>">
-					</label>
+					<button type="submit" class="search-submit"><?php echo file_get_contents(get_template_directory().'/images/search.svg'); ?></button>
+
 					<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Type here', 'placeholder', '_tk' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php _ex( 'Search for:', 'label', '_tk' ); ?>">
-					<a class="search-close" onclick="closeSearch()"><span>X</span></a>
+					<a class="search-close" onclick="closeSearch()"><span><?php echo file_get_contents(get_template_directory().'/images/close.svg'); ?></span></a>
 			</form>
 
 

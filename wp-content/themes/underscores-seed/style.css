@@ -637,12 +637,20 @@ a:hover, a:active {
 	margin-top: 80px;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
 form.search-form-drawer {
 	height: 80px;
-	background: teal;
+	background: #fff;
 	width: 100%;
 	position: fixed;
 	z-index: 2;
+	border: 1px solid #d9d6d5;
 }
 
 @media only screen and (max-width: 979px) {
@@ -654,11 +662,20 @@ form.search-form-drawer {
 form.search-form-drawer .search-submit {
 	width: 80px;
 	height: 80px;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+}
+
+form.search-form-drawer .search-submit svg {
+	height: 13px;
 }
 
 form.search-form-drawer input.search-field {
 	width: 100%;
 	height: 100%;
+	border: none;
+	border-radius: 0;
 }
 
 form.search-form-drawer .search-close {
@@ -674,6 +691,10 @@ form.search-form-drawer .search-close {
 
 form.search-form-drawer .search-close span {
 	width: 100%;
+}
+
+form.search-form-drawer .search-close span svg {
+	height: 13px;
 }
 
 .search-display {
