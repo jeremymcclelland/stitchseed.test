@@ -3,10 +3,35 @@
 	margin-top: 80px;
 }
 
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+}
+
+@media only screen and (max-width : 767px) {
+
+}
+
+@media only screen and (max-width : 480px) {
+
+}
+
+@media only screen and (max-width : 320px) {
+
+}
+
+
+
+
+
+
 .search-drawer-wrapper {
     position: fixed;
     width: 100%;
-    z-index: 2;
+    //z-index: 2;
     display: flex;
     height: 80px;
     align-items: center;
@@ -48,8 +73,18 @@
 		height: 100%;
 		align-items: center;
 
+		.expand-icon {
+			cursor: pointer;
+			margin-right: 15px;
+			@media only screen and (min-width : 980px) {
+				display: none;
+			}
+
+		}
+
 		.flex-item {
 			flex: 0 1 380px;
+			font-size: 12px;
 
 			ul {
 				text-transform: uppercase;
@@ -84,6 +119,11 @@
 				img {
 					width: 412px;
 					margin: 0 auto;
+					@media only screen and (max-width : 979px) {
+						width: auto;
+						max-width: 412px;
+
+					}
 				}
 			}
 		}
@@ -91,6 +131,12 @@
 
 		.right-nav {
 			text-align: right;
+		}
+
+		@media only screen and (max-width : 979px) {
+			.right-nav, .left-nav {
+				display: none;
+			}
 		}
 	}	
 	
@@ -196,3 +242,79 @@
 		width: 50%;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+
+     a {
+	    padding: 8px;
+	    text-decoration: none;
+	    font-size: 36px;
+	    color: #818181;
+	    display: block;
+	    transition: 0.3s;
+	    
+	    &:hover, &:focus {
+	    	color: #f1f1f1;
+	    }
+	}
+
+	.closebtn {
+	    position: absolute;
+	    top: 20px;
+	    right: 45px;
+	    font-size: 60px;
+	}
+
+    .overlay-content {
+	    position: relative;
+	    top: 25%;
+	    width: 100%;
+	    text-align: center;
+	    margin-top: 30px;
+	   
+	}
+}
+
+.overlay-hide {
+	display: none;
+}
+
+.overlay-display {
+	display: block;
+	@media only screen and (min-width : 980px) {
+		display: none;
+	}
+
+}
+
+
+// @media screen and (max-height: 450px) {
+//   .overlay a {font-size: 20px}
+//   .overlay .closebtn {
+//     font-size: 40px;
+//     top: 15px;
+//     right: 35px;
+//   }
+// }
