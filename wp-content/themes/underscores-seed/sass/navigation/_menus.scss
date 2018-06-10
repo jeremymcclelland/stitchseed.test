@@ -39,6 +39,12 @@ a {
    outline: 0 !important;
 }
 
+.hidden-desktop {
+	@media only screen and (min-width : 980px) {
+		display: none;
+	}
+}
+
 
     form.search-form-drawer {
 	    height: 80px;
@@ -204,6 +210,23 @@ a {
 							}
 						}
 					}
+				}
+
+				li.current-menu-item {
+
+					a{
+						&:after {
+							content: '';
+							transition: all 0.1s ease-in-out;
+							display: block;
+							border-bottom: 1px solid $primaryGrey;
+							width: 100%;
+							bottom: -6px;
+							position: absolute;
+							right: 1px;
+						}						
+					}
+
 				}
 
 				li.social {
@@ -466,6 +489,22 @@ a {
 			    }
 			}
     	}
+    	li.current-menu-item {
+
+			a{
+				&:after {
+					content: '';
+					transition: all 0.1s ease-in-out;
+					display: block;
+					border-bottom: 1px solid $primaryGrey;
+					width: 100%;
+					bottom: -6px;
+					position: absolute;
+					right: 1px;
+				}						
+			}
+
+		}
 	   
 	}
 }

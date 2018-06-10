@@ -648,6 +648,12 @@ a {
 	outline: 0 !important;
 }
 
+@media only screen and (min-width: 980px) {
+	.hidden-desktop {
+		display: none;
+	}
+}
+
 form.search-form-drawer {
 	height: 80px;
 	background: #fff;
@@ -829,6 +835,17 @@ form.search-form-drawer .search-close span svg {
 
 .main-navigation .flex-wrapper .flex-item ul li .search-icon:hover:after, .main-navigation .flex-wrapper .flex-item ul li .search-icon:focus:after {
 	content: none;
+}
+
+.main-navigation .flex-wrapper .flex-item ul li.current-menu-item a:after {
+	content: '';
+	transition: all 0.1s ease-in-out;
+	display: block;
+	border-bottom: 1px solid #827c78;
+	width: 100%;
+	bottom: -6px;
+	position: absolute;
+	right: 1px;
 }
 
 .main-navigation .flex-wrapper .flex-item ul li.social {
@@ -1052,6 +1069,17 @@ form.search-form-drawer .search-close span svg {
 	content: '';
 	display: block;
 	transition: all 0.1s ease-in-out;
+	border-bottom: 1px solid #827c78;
+	width: 100%;
+	bottom: -6px;
+	position: absolute;
+	right: 1px;
+}
+
+.overlay .overlay-content li.current-menu-item a:after {
+	content: '';
+	transition: all 0.1s ease-in-out;
+	display: block;
 	border-bottom: 1px solid #827c78;
 	width: 100%;
 	bottom: -6px;
