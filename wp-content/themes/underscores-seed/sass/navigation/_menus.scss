@@ -541,6 +541,9 @@ a {
 	display: flex;
 	padding: 25px;
 	align-items: flex-end;
+	@media only screen and (max-width : 850px) {
+		flex-direction: column;
+	}
 
 	.flex-item {
 		flex: 1 1 33%;
@@ -560,10 +563,20 @@ a {
 				}
 			}
 		}
+
+		@media only screen and (max-width : 850px) {
+			order: 2;
+			width: 100%;
+			text-align: center;
+		}
 	}
 
 	.foot-center {
 		text-align: center;
+		@media only screen and (max-width : 850px) {
+			order: 1;
+			margin-bottom: 30px;
+		}
 		p {
 
 			font-size: 16px;
@@ -592,5 +605,9 @@ a {
 
 	.foot-right {
 		text-align: right;
+		@media only screen and (max-width : 850px) {
+			text-align: center;
+			margin-top: 7px;
+		}
 	}
 }
