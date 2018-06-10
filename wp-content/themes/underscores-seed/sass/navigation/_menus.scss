@@ -24,7 +24,9 @@
 }
 
 
-$primaryGrey: #847c77;
+$primaryGrey: #827c78;
+
+$secondaryGrey: #cfc6be;
 
 input:focus,
 select:focus,
@@ -33,12 +35,17 @@ button:focus {
     outline: none;
 }
 
+a {
+   outline: 0 !important;
+}
+
 
     form.search-form-drawer {
 	    height: 80px;
 	    background: #fff;
 	    width: 100%;
 	    position: fixed;
+	    display: flex;
 	    z-index: 2;
 	    border: 1px solid lighten($primaryGrey, 35%);
 
@@ -63,6 +70,12 @@ button:focus {
 		    height: 100%;
 		    border: none;
 		    border-radius: 0;
+		    font-size: 17px;
+    		font-style: italic;
+
+		    &:-webkit-autofill {
+			    -webkit-box-shadow: 0 0 0px 1000px white inset;
+			}
 		}
 
 		.search-close {
@@ -84,15 +97,21 @@ button:focus {
 	}
 
 	.search-display {
-		display: flex;
+		visibility: visible;
+  		opacity: 1;
+  		transition: all 0.3s ease-in-out;
+
 
 		@media only screen and (max-width : 979px) {
-			display: none;
+			visibility: hidden;
+			opacity: 0;
 		}
 	}
 
 	.search-hide {
-		display: none;
+		visibility: hidden;
+		opacity: 0;
+
 	}
 
 .main-navigation {
@@ -113,7 +132,9 @@ button:focus {
 
 		.expand-icon {
 			cursor: pointer;
-			margin-right: 15px;
+			margin-left: 15px;
+			flex: 0 0 auto;
+			color: $primaryGrey;
 			@media only screen and (min-width : 980px) {
 				display: none;
 			}
@@ -132,8 +153,38 @@ button:focus {
 				li {
 					flex: 1 1 auto;
 					a {
+						color: $primaryGrey;
+						letter-spacing: 2px;
+						display: inline-block;
+						position: relative;
+						
 						.social-icon {
 							height: 13px;
+						}
+
+						&:after {
+							content: '';
+							transition: all 0.1s ease-in-out;
+							display: block;
+							border-bottom: 1px solid transparent;
+							width: 100%;
+							bottom: -6px;
+							position: absolute;
+							right: 1px;
+						}
+
+						&:hover, &:focus {
+							
+							&:after {
+								content: '';
+								display: block;
+								transition: all 0.1s ease-in-out;
+								border-bottom: 1px solid $primaryGrey;
+								width: 100%;
+								bottom: -6px;
+								position: absolute;
+								right: 1px;
+							}
 						}
 					}
 
@@ -142,6 +193,15 @@ button:focus {
 						height: 13px;
 						svg {
 							height: 13px;
+						}
+						&:after {
+							content: none;
+						}
+
+						&:hover, &:focus {
+							&:after {
+								content: none;
+							}
 						}
 					}
 				}
@@ -161,10 +221,20 @@ button:focus {
 								transition: all 0.1s ease-in-out;
 							}
 
+							&:after {
+								content: none;
+							}
+
 							&:hover, &:focus {
 								path {
 									fill: $primaryGrey;
 								}
+							}
+						}
+
+						&:hover, &:focus {
+							&:after {
+								content: none;
 							}
 						}
 					}
@@ -176,8 +246,19 @@ button:focus {
 
 		.flex-logo {
 			flex: 1 0 auto;
-
+			text-align: center;
 			.header-logo {
+				height: 16.5px;
+				position: relative;
+				svg {
+					width: 412px;
+					margin: 0 auto;
+					@media only screen and (max-width : 979px) {
+						width: auto;
+						max-width: 412px;
+
+					}
+				}
 				img {
 					width: 412px;
 					margin: 0 auto;
@@ -326,57 +407,151 @@ button:focus {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    background-color: #fff;
 
-     a {
-	    padding: 8px;
-	    text-decoration: none;
-	    font-size: 36px;
-	    color: #818181;
-	    display: block;
-	    transition: 0.3s;
-	    
-	    &:hover, &:focus {
-	    	color: #f1f1f1;
-	    }
-	}
+     
 
 	.closebtn {
 	    position: absolute;
-	    top: 20px;
-	    right: 45px;
-	    font-size: 60px;
+	    top: 35px;
+	    right: 25px;
+	    svg {
+	    	width: 20px;
+	    }
 	}
 
     .overlay-content {
-	    position: relative;
-	    top: 25%;
-	    width: 100%;
-	    text-align: center;
-	    margin-top: 30px;
+    	margin: 0;
+    	padding: 0;
+	    display: flex;
+	    flex-direction: column;
+   		align-items: center;
+    	height: 100%;
+    	justify-content: center;
+    	li {
+    		width: 100%;
+    		text-align: center;
+    		margin: 7px 0;
+
+
+    		a {
+			    text-decoration: none;
+			    font-size: 36px;
+			    color: $primaryGrey;
+			    position: relative;
+			    transition: 0.3s;
+
+			   &:after {
+					content: '';
+					transition: all 0.1s ease-in-out;
+					display: block;
+					border-bottom: 1px solid transparent;
+					width: 100%;
+					bottom: -6px;
+					position: absolute;
+					right: 1px;
+				}
+			    
+			   &:hover, &:focus {
+			    	&:after {
+						content: '';
+						display: block;
+						transition: all 0.1s ease-in-out;
+						border-bottom: 1px solid $primaryGrey;
+						width: 100%;
+						bottom: -6px;
+						position: absolute;
+						right: 1px;
+					}
+			    }
+			}
+    	}
 	   
 	}
 }
 
 .overlay-hide {
-	display: none;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
 }
 
 .overlay-display {
-	display: block;
+	visibility: visible;
+  	opacity: 1;
+  	transition: all 0.3s ease-in-out;
+	
 	@media only screen and (min-width : 980px) {
-		display: none;
+		visibility: hidden;
+		opacity: 0;
 	}
 
 }
 
 
+
+
 // @media screen and (max-height: 450px) {
-//   .overlay a {font-size: 20px}
-//   .overlay .closebtn {
-//     font-size: 40px;
-//     top: 15px;
-//     right: 35px;
-//   }
+
 // }
+
+
+
+
+.site-footer {
+	display: flex;
+	padding: 25px;
+	align-items: flex-end;
+
+	.flex-item {
+		flex: 1 1 33%;
+		p {
+			margin-bottom: 0;
+			font-size: 12px;
+			text-transform: uppercase;
+			color: $secondaryGrey;
+
+			a {
+				text-decoration: none;
+				color: $secondaryGrey;
+
+				&:hover, &:focus {
+					color: darken($secondaryGrey, 10%);
+					transition: all 0.1s ease-in-out;
+				}
+			}
+		}
+	}
+
+	.foot-center {
+		text-align: center;
+		p {
+
+			font-size: 16px;
+
+			a {
+				color: $primaryGrey;
+				border-bottom: 1px solid $primaryGrey;
+				padding-bottom: 10px;
+				&:hover, &:focus {
+					color: darken($primaryGrey, 10%);
+					transition: all 0.1s ease-in-out;
+				}
+			}
+
+		}
+		.lead {
+			font-size: 22px;
+			margin-bottom: 15px;
+
+			a {
+				border-bottom: none;
+			}
+		}
+	}
+
+
+	.foot-right {
+		text-align: right;
+	}
+}

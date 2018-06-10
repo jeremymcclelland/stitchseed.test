@@ -45,6 +45,8 @@ if ( ! function_exists( 'underscores_seed_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'underscores-seed' ),
+			'main-left' => esc_html__( 'Main Left', 'underscores-seed' ),
+			'main-right' => esc_html__( 'Main Right', 'underscores-seed' ),
 		) );
 
 		/*
